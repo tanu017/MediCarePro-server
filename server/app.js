@@ -21,7 +21,7 @@ app.use(cors({
   origin: [
     "http://localhost:5173",             // Your local Vite frontend
     "http://localhost:3000",             // React default (backup)
-    "https://your-project-name.vercel.app" // ⚠️ REPLACE THIS later with your actual Vercel URL
+    "https://medi-care-pro-client.vercel.app/" // ⚠️ REPLACE THIS later with your actual Vercel URL
   ],
   credentials: true // Allows cookies/headers to be sent
 }));
