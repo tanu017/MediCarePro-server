@@ -15,20 +15,20 @@ import adminRoutes from "./src/routes/adminRoutes.js";
 const app = express();
 
 // ====================================================
-// UPDATED CORS CONFIGURATION
+// UPDATED CORS CONFIGURATION (FINAL)
 // ====================================================
 app.use(cors({
   origin: [
-    "http://localhost:5173",             // Your local Vite frontend
-    "http://localhost:3000",             // React default (backup)
-    "https://medi-care-pro-client.vercel.app/" // ⚠️ REPLACE THIS later with your actual Vercel URL
+    "http://localhost:5173",                     // Localhost (Vite)
+    "http://localhost:3000",                     // Localhost (React Backup)
+    "https://medi-care-pro-client.vercel.app"    // ✅ CORRECT: No trailing slash at the end!
   ],
-  credentials: true // Allows cookies/headers to be sent
+  credentials: true 
 }));
 
 //  Global Middlewares
-app.use(express.json());          // parse JSON request bodies
-app.use(morgan("dev"));           // logging requests
+app.use(express.json());          
+app.use(morgan("dev"));           
 
 //  Routes
 app.use("/api/auth", authRoutes);
@@ -40,7 +40,7 @@ app.use("/api/prescriptions", prescriptionRoutes);
 app.use("/api/receptionists", receptionistRoutes);
 app.use("/api/admin", adminRoutes);
 
-//  Health check route (Perfect for Render!)
+//  Health check route
 app.get("/", (req, res) => {
   res.send("Hospital Management API is running 🚑");
 });
